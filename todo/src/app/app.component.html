@@ -396,6 +396,7 @@
 
   <div class="card-container">
     <ul>
+      <p *ngIf="todos.length === 0"><small>Não tem nenhuma tarefa hoje!</small></p>
       <li *ngFor="let todo of todos">{{ todo.id }}. {{ todo.title }} - 
         <button *ngIf="!todo.done" (click)="markAsDone(todo)">CONCLUIR</button> | 
         <button *ngIf="todo.done" (click)="markAsUnDone(todo)">REFAZER</button> | 
@@ -412,7 +413,7 @@
         <input type="text" placeholder="Título da Tarefa" maxlength="60" formControlName="title">
         <!-- Para acessar via 'form.controls.CONTROL.VALIDATOR' - tsconfig.json > noPropertyAccessFromIndexSignature = false -->
         <small *ngIf="form.get('title')?.invalid && !form.get('title')?.pristine">Este campo deve conter entre 3 e 60 caracteres</small>
-        <button [disabled]="form.invalid">Salvar</button>
+        <button [disabled]="form.invalid" (click)="add()">Salvar</button>
       </fieldset>
     </form>
   </div>

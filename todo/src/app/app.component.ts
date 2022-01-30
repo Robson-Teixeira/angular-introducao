@@ -20,10 +20,18 @@ export class AppComponent {
         Validators.required
       ])]
     });
+  }
 
-    this.todos.push(new Todo(1, 'Tarefa 1', false));
-    this.todos.push(new Todo(2, 'Tarefa 2', false));
-    this.todos.push(new Todo(3, 'Tarefa 3', true));
+  add() {    
+    const title: string = this.form.get('title')?.value; //Ou this.form.controls['title'].value
+    const id: number = this.todos.length +1;
+    
+    this.todos.push(new Todo(id, title, false));
+    this.clear();
+  }
+
+  clear() {
+    this.form.reset();
   }
 
   remove(todo: Todo) {
