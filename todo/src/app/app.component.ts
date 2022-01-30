@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'todo';
+
+  public todos: any[] = [];
+
+  constructor() {
+    this.todos.push('Tarefa 1');
+    this.todos.push('Tarefa 2');
+    this.todos.push('Tarefa 3');
+  }
 }
