@@ -404,6 +404,17 @@
     </ul>
   </div>
 
+  <div class="card-container">
+    <form [formGroup]="form">
+      <fieldset>
+        <legend>Inclusão</legend>
+        <label>Tarefa: </label>
+        <input type="text" placeholder="Título da Tarefa" maxlength="60" formControlName="title">
+        <button>Salvar</button>
+      </fieldset>
+    </form>
+  </div>
+
   <!-- Next Steps -->
   <h2>Next Steps</h2>
   <p>What do you want to do next with your app?</p>

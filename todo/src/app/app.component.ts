@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Todo } from 'src/models/todo.model';
 
 @Component({
@@ -9,8 +10,17 @@ import { Todo } from 'src/models/todo.model';
 export class AppComponent {
   public title: string = 'Minhas Tarefas';
   public todos: Todo[] = [];
+  public form: FormGroup;
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      title: ['', Validators.compose([ //Usar 'Validators.compose' quando houver mais de uma validação
+        Validators.minLength(3),
+        Validators.maxLength(60),
+        Validators.required
+      ])]
+    });
+
     this.todos.push(new Todo(1, 'Tarefa 1', false));
     this.todos.push(new Todo(2, 'Tarefa 2', false));
     this.todos.push(new Todo(3, 'Tarefa 3', true));
