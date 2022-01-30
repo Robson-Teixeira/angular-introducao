@@ -341,7 +341,7 @@
       </g>
     </svg>
 
-    <span>{{ title }} app is running!</span>
+    <span>App is running!</span>
 
     <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
       <title>Rocket Ship Smoke</title>
@@ -384,6 +384,16 @@
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
     </a>
 
+  </div>
+
+  <!-- My App -->
+  <h2>My App</h2>
+  <p>{{ title }}</p>
+
+  <div class="card-container">
+    <ul>
+      <li *ngFor="let todo of todos">{{ todo }}</li>
+    </ul>
   </div>
 
   <!-- Next Steps -->
