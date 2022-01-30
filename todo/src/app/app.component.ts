@@ -22,4 +22,12 @@ export class AppComponent {
     if (index !== -1)
       this.todos.splice(index, 1);
   }
+
+  markAsDone(todo: Todo) {
+    todo.done = true;
+  }
+
+  markAsUnDone(todo: Todo) {
+    todo.done = false;
+  }  
 }
