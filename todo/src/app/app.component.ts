@@ -8,9 +8,10 @@ import { Todo } from 'src/models/todo.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public title: string = 'Minhas Tarefas';
+  public title: string = 'Lista de Tarefas';
   public todos: Todo[] = [];
   public form: FormGroup;
+  public mode: string = 'list';
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -68,5 +69,9 @@ export class AppComponent {
       this.todos = JSON.parse(data);
     else
       this.todos = [];
+  }
+
+  changeMode(mode: string) {
+    this.mode = mode;
   }
 }

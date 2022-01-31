@@ -96,11 +96,10 @@
       <!-- () = HTML > TS -->
       <!-- [] = TS > HTML -->
       <!-- [()] = TS <> HTML -->
-  <h2 class="title">My App</h2>
-  <p>{{ title }}</p>
+  <h1 class="title animated jackInTheBox">{{ title }}</h1>
 
   <div class="card-container">
-    <ul>
+    <ul class="animated flipInX" *ngIf="mode === 'list'">
       <p *ngIf="todos.length === 0"><small>Não tem nenhuma tarefa hoje!</small></p>
       <li *ngFor="let todo of todos"> {{ todo.title }} - 
         <button *ngIf="!todo.done" (click)="markAsDone(todo)">CONCLUIR</button> | 
@@ -110,7 +109,7 @@
     </ul>
   </div>
 
-  <div class="card-container">
+  <div id="modal" class="card-container animated flipInX" *ngIf="mode === 'add'">
     <form [formGroup]="form">
       <fieldset>
         <legend>Inclusão</legend>
@@ -122,6 +121,15 @@
       </fieldset>
     </form>
   </div>
+
+  <button class="add-button animated fadeInUp button" (click)="changeMode('add')" *ngIf="mode === 'list'">
+    <em class="fas fa-plus-circle"></em>
+    Nova Tarefa
+  </button>
+  <button class="add-button animated fadeInUp button" (click)="changeMode('list')" *ngIf="mode === 'add'">
+    <em class="fas fa-times"></em>
+    Cancelar
+  </button>  
 
   <!-- Next Steps -->
   <h2>Next Steps</h2>
