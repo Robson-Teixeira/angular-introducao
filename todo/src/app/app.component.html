@@ -102,7 +102,7 @@
   <div class="card-container">
     <ul>
       <p *ngIf="todos.length === 0"><small>Não tem nenhuma tarefa hoje!</small></p>
-      <li *ngFor="let todo of todos">{{ todo.id }}. {{ todo.title }} - 
+      <li *ngFor="let todo of todos"> {{ todo.title }} - 
         <button *ngIf="!todo.done" (click)="markAsDone(todo)">CONCLUIR</button> | 
         <button *ngIf="todo.done" (click)="markAsUnDone(todo)">REFAZER</button> | 
         <button (click)="remove(todo)">REMOVER</button>
