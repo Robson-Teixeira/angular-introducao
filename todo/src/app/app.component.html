@@ -96,15 +96,15 @@
       <!-- () = HTML > TS -->
       <!-- [] = TS > HTML -->
       <!-- [()] = TS <> HTML -->
-  <h1 class="title animated jackInTheBox">{{ title }}</h1>
+  <h1 class="title text-center animated jackInTheBox">{{ title }}</h1>
 
   <div class="card-container">
     <ul class="animated flipInX" *ngIf="mode === 'list'">
-      <p *ngIf="todos.length === 0"><small>Não tem nenhuma tarefa hoje!</small></p>
-      <li *ngFor="let todo of todos"> {{ todo.title }} - 
-        <button *ngIf="!todo.done" (click)="markAsDone(todo)">CONCLUIR</button> | 
-        <button *ngIf="todo.done" (click)="markAsUnDone(todo)">REFAZER</button> | 
-        <button (click)="remove(todo)">REMOVER</button>
+      <p class="text-center" *ngIf="todos.length === 0"><small>Não tem nenhuma tarefa hoje!</small></p>
+      <li *ngFor="let todo of todos"> {{ todo.title }} 
+        <button (click)="remove(todo)"><em class="far fa-trash-alt"></em></button>
+        <button *ngIf="!todo.done" (click)="markAsDone(todo)"><em class="far fa-check-circle"></em></button>
+        <button *ngIf="todo.done" (click)="markAsUnDone(todo)"><em class="fas fa-check-circle"></em></button>
       </li>
     </ul>
   </div>
