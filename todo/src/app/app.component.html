@@ -109,17 +109,23 @@
     </ul>
   </div>
 
-  <div id="modal" class="card-container animated flipInX" *ngIf="mode === 'add'">
+  <div id="modal" class="animated flipInX" *ngIf="mode === 'add'">
+    <h1 class="text-center">Nova Tarefa</h1>
     <form [formGroup]="form">
-      <fieldset>
-        <legend>Inclusão</legend>
-        <label>Tarefa: </label>
-        <input type="text" placeholder="Título da Tarefa" maxlength="60" formControlName="title">
+        <input type="text" placeholder="Título da Tarefa" maxlength="60" formControlName="title"><br>
         <!-- Para acessar via 'form.controls.CONTROL.VALIDATOR' - tsconfig.json > noPropertyAccessFromIndexSignature = false -->
-        <small *ngIf="form.get('title')?.invalid && !form.get('title')?.pristine">Este campo deve conter entre 3 e 60 caracteres</small>
-        <button class="button" [disabled]="form.invalid" (click)="add()">Salvar</button>
-      </fieldset>
+        <small class="danger" *ngIf="form.get('title')?.invalid && !form.get('title')?.pristine">
+          Este campo deve conter entre 3 e 60 caracteres!<br>
+        </small>
+        <br>
+        <p class="text-center">
+          <button class="button" [disabled]="form.invalid" (click)="add()">
+            <em class="far fa-save"></em>
+            Salvar
+          </button>
+        </p>
     </form>
+    <br><br>
   </div>
 
   <button class="add-button animated fadeInUp button" (click)="changeMode('add')" *ngIf="mode === 'list'">
@@ -130,6 +136,8 @@
     <em class="fas fa-times"></em>
     Cancelar
   </button>  
+
+  <br><br>
 
   <!-- Next Steps -->
   <h2>Next Steps</h2>

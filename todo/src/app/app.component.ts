@@ -60,6 +60,7 @@ export class AppComponent {
   save() {
     const data = JSON.stringify(this.todos);
     localStorage.setItem('todos', data); //Ou sessionStorage    
+    this.changeMode('list');
   }
 
   load() {
