@@ -96,7 +96,7 @@
       <!-- () = HTML > TS -->
       <!-- [] = TS > HTML -->
       <!-- [()] = TS <> HTML -->
-  <h2>My App</h2>
+  <h2 class="title">My App</h2>
   <p>{{ title }}</p>
 
   <div class="card-container">
@@ -118,7 +118,7 @@
         <input type="text" placeholder="Título da Tarefa" maxlength="60" formControlName="title">
         <!-- Para acessar via 'form.controls.CONTROL.VALIDATOR' - tsconfig.json > noPropertyAccessFromIndexSignature = false -->
         <small *ngIf="form.get('title')?.invalid && !form.get('title')?.pristine">Este campo deve conter entre 3 e 60 caracteres</small>
-        <button [disabled]="form.invalid" (click)="add()">Salvar</button>
+        <button class="button" [disabled]="form.invalid" (click)="add()">Salvar</button>
       </fieldset>
     </form>
   </div>
