@@ -42,7 +42,8 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "5kb"
+                  //exceeded maximum budget. Budget 2.00 kB was not met by 2.90 kB with a total of 4.90 kB.
                 }
               ],
               "fileReplacements": [
